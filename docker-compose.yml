@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./my-frontend-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:7000  # Set the backend container name
+
+
+  backend:
+    build: ./backend
+    environment:
+      MYSQL_HOST: database  # Corrected line
+    ports:
+      - "7000:7000"
+    depends_on:
+      - database
+
+  database:
+    build: ./database
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_ROOT_USER: root  # Corrected line
+    ports:
+      - "3306:3306"

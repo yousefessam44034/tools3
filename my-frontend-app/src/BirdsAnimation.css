@@ -1,0 +1,40 @@
+.birds-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .bird {
+    width: 30px;
+    height: 20px;
+    background-color: #87CEEB; /* Sky Blue color */
+    position: absolute;
+    border-radius: 50%;
+    animation: flyingBirds 10s linear infinite;
+  }
+  
+  .bird1 {
+    top: 20%;
+    left: 10%;
+  }
+  
+  .bird2 {
+    top: 50%;
+    left: 30%;
+  }
+  
+  .bird3 {
+    top: 80%;
+    left: 50%;
+  }
+  
+  @keyframes flyingBirds {
+    to {
+      transform: translateX(calc(100% + 30px));
+    }
+  }
+  
